@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "E:\\My Project\\week 23\\carecircle\\logs\\.da1fb5696e6843d7e5b5a9eafff7f58f06703586-audit.json",
+    "files": [
+        {
+            "date": 1763746689752,
+            "name": "E:\\My Project\\week 23\\carecircle\\logs\\app-2025-11-21.log",
+            "hash": "3bb3bad79e319d990ad4cb90b82bc30c649cc9ab1db30336d76afccd1c1ed10a"
+        },
+        {
+            "date": 1763750724138,
+            "name": "E:\\My Project\\week 23\\carecircle\\logs\\app-2025-11-22.log",
+            "hash": "c2fe5a084ce2db87a4b59567a1aba8d3378b8cd15198f5ee3c6be9008faabf0d"
+        }
+    ],
+    "hashType": "sha256"
+}
