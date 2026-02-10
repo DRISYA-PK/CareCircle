@@ -1,6 +1,6 @@
 import { IUserModel,UserModel } from "../../models/implements/user.model.js";
 import { BaseRepository } from "../baseRepository.js";
-import { IUserRepository } from "../interface/IuserRepository.js";
+import { IUserRepository } from "../interface/IUserRepository.js";
 
 export class UserRepository extends BaseRepository<IUserModel> implements IUserRepository{
  constructor() {

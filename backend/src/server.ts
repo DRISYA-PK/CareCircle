@@ -2,6 +2,9 @@
 import express from "express";
 import logger from "./config/logger.config.js";
 import {connectDB} from "./config/db.config.js"
+import dotenv from "dotenv";
+dotenv.config();   
+
 
 const app=express();
 const PORT = process.env.PORT || 5000;
