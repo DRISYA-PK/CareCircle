@@ -12,7 +12,7 @@ export  const connectDB = async () => {
       throw new Error("MONGO_URI not found in .env file");
     }
 
-    await mongoose.connect(mongoURI);
+    await mongoose.connect(mongoURI); 
 
     logger.info("📦 MongoDB Connected Successfully to Atlas Cluster");
   } catch (error: any) {
