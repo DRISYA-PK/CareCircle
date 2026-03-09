@@ -1,3 +1,0 @@
-2026-02-03T13:31:30.607Z [INFO]: started
-2026-02-03T13:31:30.625Z [INFO]:  Server running on port 5000
-2026-02-03T13:31:34.902Z [ERROR]: ❌ MongoDB Connection Failed: querySrv ENOTFOUND _mongodb._tcp.cluster0.dpuby.mongodb.net

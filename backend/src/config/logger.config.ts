@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Log folder path
-const logDir = path.join(__dirname, "../../../logs");
+const logDir = path.join(__dirname, "../../../backend/logs");
 
 // Create logger
 const logger = winston.createLogger({

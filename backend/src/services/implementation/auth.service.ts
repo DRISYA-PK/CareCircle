@@ -6,12 +6,12 @@ import { HttpStatus } from '../../constant/status.constant.js';
 import { HttpResponse } from '../../constant/response-message.constant.js';
 export class AuthService implements IAuthService {
   constructor(private readonly userRepository: IUserRepository) {}
-  async signUp(user: IUserModel): Promise<string> {
-      const userExist=await this.userRepository.findByEmail(user.email)
-      if(userExist)
-      {
-          createHttpError(HttpStatus.CONFLICT,HttpResponse.EMAIL_EXIST)
-      }
+//   async signUp(user: IUserModel): Promise<string> {
+//       const userExist=await this.userRepository.findByEmail(user.email)
+//       if(userExist)
+//       {
+//           createHttpError(HttpStatus.CONFLICT,HttpResponse.EMAIL_EXIST)
+//       }
       
-  }
+//   }
 }

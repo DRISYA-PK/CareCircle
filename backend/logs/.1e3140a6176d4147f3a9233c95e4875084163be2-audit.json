@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "E:\\MyMainProject\\CareCircle\\backend\\logs\\.1e3140a6176d4147f3a9233c95e4875084163be2-audit.json",
+    "files": [
+        {
+            "date": 1771304885511,
+            "name": "E:\\MyMainProject\\CareCircle\\backend\\logs\\app-2026-02-17.log",
+            "hash": "01948abd532abdd1b56c81eb235b43c13e941b8e914c67e54aef4845a48d20fe"
+        }
+    ],
+    "hashType": "sha256"
+}
