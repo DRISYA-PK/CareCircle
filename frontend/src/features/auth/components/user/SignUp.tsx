@@ -1,7 +1,7 @@
 import { Mail, Lock, ArrowRight, User, Phone } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
+import { logger } from '../../../../shared/utils/logger';
 import { signUpSchema, type SignUpFormData } from '../../schemas/signup.schema';
 
 export const SignUp: React.FC = () => {
@@ -16,8 +16,8 @@ export const SignUp: React.FC = () => {
   });
 
   const onSubmit = async (data: SignUpFormData) => {
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    console.log('Form submitted:', data);
+  
+    logger.info(data.name)
   };
 
   return (
