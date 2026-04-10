@@ -16,10 +16,11 @@ const originalSlides: SlideData[] = [
 // We add the first slide to the end to create the loop anchor
 const slides = [...originalSlides, originalSlides[0]];
 
-const SeamlessCharitySlider: React.FC = () => {
+const HeroSlide: React.FC = () => {
   const [current, setCurrent] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  //const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const nextSlide = () => {
     if (current >= slides.length - 1) return;
@@ -101,4 +102,4 @@ const SeamlessCharitySlider: React.FC = () => {
   );
 };
 
-export default SeamlessCharitySlider;
+export default HeroSlide;
