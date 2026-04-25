@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 import HomePage from "../../features/home/pages/HomePage"
-import SignIn from "../../features/auth/pages/user/UserSignIn"
-import UserSignUp from "../../features/auth/pages/user/UserSignUp"
+import UserSignIn from "../../features/auth/pages/user/UserSignIn"
+//import OtpVerification from "../../features/auth/pages/user/OtpVerification"
 
 export const router=createBrowserRouter([
   {
@@ -9,12 +9,15 @@ export const router=createBrowserRouter([
     
   },
     {
-    path:"userlogin",element:<SignIn/>,
+   // path:"/userlogin",element:<UserSignIn/>,
     
   },
-   {
-    path:"userSignUp",element:<UserSignUp/>,
+  //  {
+  //   path:"userSignUp",element:<UserSignUp/>,
     
-  },
+  // },
+  {
+    //path:"verify-otp",element:<OtpVerification/>
+  }
 ])
 

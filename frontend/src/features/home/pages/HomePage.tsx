@@ -79,8 +79,7 @@ useEffect(() => {
             {/* Close Button */}
             <button
               onClick={() => setShowLoginModal(false)}
-              className="absolute -top-3 -right-3 z-20 h-10 w-10 rounded-full bg-white shadow-lg text-gray-500 hover:text-black"
-            >
+             className="absolute top-5 right-2 z-20 h-9 w-9 rounded-full bg-white shadow-md text-gray-500 hover:text-black flex items-center justify-center"       >
               ✕
             </button>
             {

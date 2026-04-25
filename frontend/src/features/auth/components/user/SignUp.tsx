@@ -3,28 +3,59 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { logger } from '../../../../shared/utils/logger';
 import { signUpSchema, type SignUpFormData } from '../../schemas/signup.schema';
+import { useAuthFlow } from '../../hooks/useAuthFlow';
+import { useNavigate } from 'react-router-dom';
+import { OtpVerificationModal } from '../OtpSentModal';
+import { useState } from 'react';
+import type { OtpFlowData } from '../../types/userAuthTypes';
+import { X } from 'lucide-react';
+
 
 export const SignUp: React.FC = () => {
+  const navigate=useNavigate();
+  const [showModal, setShowModal] = useState(false);
+ const [state, setState] = useState<OtpFlowData | null>(null);
+   const { handleSignUp, apiError, isLoading,info } = useAuthFlow();
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
   } = useForm<SignUpFormData>({
     resolver: zodResolver(signUpSchema),
     mode: 'onChange',           // ← validate when a field loses focus
     reValidateMode: 'onChange', // ← re-validate on blur after first submit too
   });
 
-  const onSubmit = async (data: SignUpFormData) => {
+  const onSubmit = async (payload: SignUpFormData) => {
   
-    logger.info(data.name)
+    //here signup calling
+    logger.info("signup validation completed",JSON.stringify(payload, null, 2));
+  //  const otpFlowData:OtpFlowData= await handleSignUp(payload);
+  //  setState(otpFlowData)
+  //  if (!apiError) {
+  //   setShowModal(true);
+  // }
+   const otpFlowData = await handleSignUp(payload);
+
+  // ❌ if (!apiError) ❌ remove this
+
+  if (!otpFlowData) return; // ✅ API failed → stop
+
+  // ✅ success case
+  setState(otpFlowData);
+  setShowModal(true);
+
+
+
+    
   };
 
   return (
     <div className="w-full flex items-center justify-center p-4 bg-transparent">
       <div className="w-full max-w-md bg-white/90 backdrop-blur-md rounded-[2.5rem] shadow-2xl overflow-hidden border border-white/30">
-        <div className="p-8 sm:p-10">
+       <div className="p-8 sm:p-10 relative">
 
+ 
           {/* Logo & Header */}
           <div className="flex flex-col items-center text-center mb-6">
             <div className="mb-4">
@@ -39,15 +70,9 @@ export const SignUp: React.FC = () => {
             </p>
           </div>
 
-          {/* Success Banner
-          {isSubmitSuccessful && (
-            <div className="mb-4 flex items-center gap-2 rounded-xl bg-[#e6f7f5] border border-[#bfe6df] px-4 py-3 text-sm text-[#1d6e69] font-medium">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <path d="M20 6 9 17l-5-5" />
-              </svg>
-              Account created successfully! Welcome to Care Circle.
-            </div>
-          )} */}
+          {/* Success Banner */}
+          
+          
 
           {/* Form */}
           <form className="space-y-4" onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -231,6 +256,28 @@ export const SignUp: React.FC = () => {
           </p>
         </div>
       </div>
+
+
+
+ {/* ✅ 👉 ADD MODAL HERE */}
+    {/* <OtpSentModal
+      status={showModal ? info : null}
+      message={"otp sent to the mail"}
+      onConfirm={() => {
+        setShowModal(false);
+        navigate("/verify-otp");
+      }}
+      onCancel={() => {
+        setShowModal(false);
+      }}
+    /> */}
+    <OtpVerificationModal
+    isOpen={showModal?true:false}
+    OtpFlowState={state}
+    onVerify={()=>{}}
+    onCancel={() => setShowModal(false)}
+    onResend={()=>{}}/>
+
     </div>
   );
 };
